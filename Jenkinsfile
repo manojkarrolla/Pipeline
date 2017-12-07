@@ -1,7 +1,8 @@
- stages {properties([[$class: 'GithubProjectProperty', 
-                         displayName: '',
-                         projectUrlStr: 'https://github.com/manojkarrolla/Pipeline.git/'],
-                         pipelineTriggers([githubPush()])])
+properties([[$class: 'GithubProjectProperty', 
+             displayName: '', 
+             projectUrlStr: 'https://github.com/manojkarrolla/Pipeline.git/'],
+             pipelineTriggers([githubPush()])])
+
 pipeline {
     agent any
         stage('Build') {
