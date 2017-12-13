@@ -1,26 +1,16 @@
-properties([[$class: 'GithubProjectProperty', 
-             displayName: '', 
-             projectUrlStr: 'https://github.com/manojkarrolla/Pipeline.git/'],
-             pipelineTriggers([githubPush()])])
-
 pipeline {
     agent any
-  stages {
-        stage('Build') {
-            steps {
-              echo 'Building.,}.'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
-  }
-}
+    parameters {
+        booleanParam(defaultValue: true, description: '', name: 'Check for True')
+        string(defaultValue: "MARVEL", description: '', name: 'Enter any Name')
+        choice(choices: 'IronMan\nHulk\nSpider-Man\nThor', description: '', name: 'Select a Hero')
+    }
 
+  stages {
+        stage("foo") {
+            steps {
+                echo "flag: ${params.userFlagT}"
+            }
+        }
+    }
+}
